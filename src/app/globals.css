@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #4A90D9;
+  --color-primary-light: #6BA4DF;
+  --color-bg-base: #E8EDF2;
+  --color-text-main: #2D3748;
+  --color-text-muted: #718096;
+}
+
+/* Custom Utilities for Neomorphism & Glassmorphism */
+@layer utilities {
+  .neo-shadow {
+    box-shadow: 8px 8px 16px #c5cdd5, -8px -8px 16px #ffffff;
+  }
+  
+  .neo-shadow-inset {
+    box-shadow: inset 6px 6px 12px #c5cdd5, inset -6px -6px 12px #ffffff;
+  }
+
+  .neo-shadow-hover:hover {
+    box-shadow: 12px 12px 20px #c5cdd5, -12px -12px 20px #ffffff;
+    transform: translateY(-2px);
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px rgba(74, 144, 217, 0.5);
+  }
+}
+
+:root {
+  --background: #E8EDF2;
+  --foreground: #2D3748;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #E8EDF2;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
