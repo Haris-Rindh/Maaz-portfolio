@@ -1,67 +1,86 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #4A90D9;
-  --color-primary-light: #6BA4DF;
-  --color-bg-base: #E8EDF2;
-  --color-text-main: #2D3748;
-  --color-text-muted: #718096;
+  --color-primary: #ffffff;
+  --color-secondary: #a1a1aa;
+  --color-bg: #09090b;
+  --color-surface: #121214;
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Custom Utilities for Neomorphism & Glassmorphism */
 @layer utilities {
-  .neo-shadow {
-    box-shadow: 8px 8px 16px #c5cdd5, -8px -8px 16px #ffffff;
-  }
-  
-  .neo-shadow-inset {
-    box-shadow: inset 6px 6px 12px #c5cdd5, inset -6px -6px 12px #ffffff;
-  }
-
-  .neo-shadow-hover:hover {
-    box-shadow: 12px 12px 20px #c5cdd5, -12px -12px 20px #ffffff;
-    transform: translateY(-2px);
-  }
-
-  .glass-panel {
-    background: rgba(255, 255, 255, 0.4);
+  .glass {
+    background: rgba(9, 9, 11, 0.6);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .glass-panel {
+    background: linear-gradient(180deg, rgba(24, 24, 27, 0.5) 0%, rgba(9, 9, 11, 0.7) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 20px 40px rgba(0,0,0,0.5);
   }
 
-  .text-glow {
-    text-shadow: 0 0 10px rgba(74, 144, 217, 0.5);
+  /* Text Gradients */
+  .text-gradient {
+    background: linear-gradient(to bottom right, #ffffff 30%, #71717a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-gradient-accent {
+    background: linear-gradient(to bottom right, #e2e8f0 0%, #38bdf8 50%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Premium Grid Background */
+  .bg-grid {
+    background-size: 50px 50px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
   }
 }
 
 :root {
-  --background: #E8EDF2;
-  --foreground: #2D3748;
+  --bg: #050505;
+  --fg: #fafafa;
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: 'Inter', sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+::-webkit-scrollbar        { width: 8px; }
+::-webkit-scrollbar-track  { background: #050505; }
+::-webkit-scrollbar-thumb  { background: #27272a; border-radius: 4px; border: 2px solid #050505; }
+::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
 }
-::-webkit-scrollbar-track {
-  background: #E8EDF2;
-}
-::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+
+/* ──────────────────────────────────────────────
+   Enhanced Magic Spotlight Border (Vercel Style)
+────────────────────────────────────────────── */
+.group-hover-spotlight:hover::before {
+  opacity: 1;
 }

@@ -2,89 +2,156 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { Calendar, Briefcase, MapPin } from "lucide-react";
+import { MagicCard } from "./MagicCard";
 
 const experienceData = [
   {
-    company: "TechNexus AI Labs",
+    duration: "2023 – Present",
     title: "Senior AI Engineer",
-    duration: "2023 - Present",
+    company: "TechNexus AI Labs",
+    location: "Remote / Global",
+    tags: ["LLMs", "RAG", "MLOps"],
     achievements: [
-      "Architected and deployed a production RAG pipeline, reducing hallucination rates by 35%.",
-      "Fine-tuned LLaMA-3 8B on proprietary financial data using QLoRA, achieving human-level accuracy in sentiment analysis.",
-      "Optimized inference latency by 40% using vLLM and Triton Inference Server on AWS.",
-      "Mentored a team of 3 junior engineers and established internal LLM evaluation frameworks."
+      "Architected a production RAG pipeline that reduced hallucination rates by 35% across enterprise document QA.",
+      "Fine-tuned LLaMA-3 8B on proprietary financial corpora via QLoRA — GPT-4-level domain benchmark accuracy.",
+      "Optimised inference latency by 40% with vLLM batching + Triton on AWS SageMaker.",
+      "Established internal LLM evaluation frameworks; promoted 3 junior engineers.",
     ],
   },
   {
-    company: "DataSphere Solutions",
+    duration: "2020 – 2023",
     title: "Machine Learning Engineer",
-    duration: "2020 - 2023",
+    company: "DataSphere Solutions",
+    location: "Remote / Global",
+    tags: ["NLP", "Kubernetes", "Pipelines"],
     achievements: [
-      "Deployed real-time NLP inference APIs supporting up to 10k RPS for conversational agents.",
-      "Designed an MLOps platform using MLflow and Kubernetes, reducing model deployment time from days to hours.",
-      "Developed a customer churn prediction model with 92% AUC, saving an estimated $1.2M annually.",
-      "Implemented a comprehensive data quality monitoring system using dbt and Great Expectations."
+      "Deployed real-time NLP inference APIs handling 10k RPS at sub-50ms p99 with FastAPI + Kubernetes.",
+      "Built a continuous training platform with MLflow + Airflow — cut deployment cycles from days to hours.",
+      "Shipped a churn model at 92% AUC, attributed to $1.2M in annual retention savings.",
+      "Implemented dbt + Great Expectations data quality layer — catches 98% of schema anomalies pre-prod.",
     ],
   },
   {
-    company: "Innovate Analytics",
+    duration: "2018 – 2020",
     title: "Data Scientist",
-    duration: "2018 - 2020",
+    company: "Innovate Analytics",
+    location: "Remote / Global",
+    tags: ["Spark", "Analytics", "A/B Testing"],
     achievements: [
-      "Built end-to-end data pipelines in Apache Spark processing 50TB+ of telemetry data daily.",
-      "Created interactive executive dashboards in Tableau and React to visualize key KPIs.",
-      "Collaborated with product teams to design A/B testing frameworks, improving conversion by 15%."
+      "Built Spark pipelines processing 50TB+ of daily IoT telemetry with zero-downtime rolling updates.",
+      "Delivered executive KPI dashboards in React + D3.js — replaced 40 hours/week of manual reporting.",
+      "Designed A/B testing infra — surfaced a 15% conversion uplift within the first product quarter.",
     ],
   },
 ];
 
 const WorkExperience = () => {
   return (
-    <section id="experience" className="py-24 px-6 md:px-12 max-w-5xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-16"
-      >
-        <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Work Experience</h2>
-        <div className="w-24 h-1 bg-primary mx-auto rounded-full"></div>
-      </motion.div>
+    <section id="experience" className="relative py-32 px-6 md:px-12 bg-[#09090b]">
+      <div className="max-w-5xl mx-auto">
 
-      <div className="relative border-l-4 border-gray-300 ml-4 md:ml-8 pl-8 md:pl-12 space-y-12">
-        {experienceData.map((job, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="relative"
-          >
-            {/* Timeline Dot */}
-            <div className="absolute -left-[45px] md:-left-[61px] top-6 w-6 h-6 rounded-full bg-primary border-4 border-[#E8EDF2] neo-shadow" />
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-24 text-center"
+        >
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <span className="h-px w-8 bg-gradient-to-r from-transparent to-white/50" />
+            <span className="text-[10px] font-bold tracking-widest text-white/50 uppercase">The Journey</span>
+            <span className="h-px w-8 bg-gradient-to-l from-transparent to-white/50" />
+          </div>
+          <h2 className="text-5xl md:text-7xl font-black text-white leading-none tracking-tighter">
+            CAREER<br />
+            <span className="text-gray-500">EVOLUTION</span>
+          </h2>
+        </motion.div>
 
-            <div className="group p-8 rounded-3xl neo-shadow bg-[#E8EDF2] hover:neo-shadow-hover transition-all duration-300 relative overflow-hidden">
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-[0_0_10px_rgba(74,144,217,0.8)]" />
-              
-              <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-4">
-                <h3 className="text-2xl font-bold text-gray-800">{job.title}</h3>
-                <span className="text-primary font-medium tracking-wide mt-2 md:mt-0">{job.duration}</span>
-              </div>
-              <h4 className="text-lg font-semibold text-gray-600 mb-6">{job.company}</h4>
-              
-              <ul className="space-y-3">
-                {job.achievements.map((achievement, i) => (
-                  <li key={i} className="flex items-start">
-                    <span className="text-primary mr-3 mt-1.5 text-xl leading-none">•</span>
-                    <span className="text-gray-600 leading-relaxed">{achievement}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
-        ))}
+        {/* Center-line timeline */}
+        <div className="relative">
+          {/* Vertical glowing line */}
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[1px] bg-white/5 hidden md:block">
+            <motion.div 
+              className="absolute top-0 w-full bg-gradient-to-b from-transparent via-white/40 to-transparent blur-[1px]"
+              animate={{ top: ["-10%", "110%"] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+              style={{ height: '20%' }}
+            />
+          </div>
+
+          <div className="space-y-16">
+            {experienceData.map((job, idx) => {
+              const isLeft = idx % 2 === 0;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className={`relative flex flex-col md:flex-row items-center gap-8 ${
+                    isLeft ? "md:flex-row" : "md:flex-row-reverse"
+                  }`}
+                >
+                  {/* Card wrapper */}
+                  <div className="w-full md:w-[45%]">
+                    <MagicCard className="p-8 bg-[#121214]">
+                      {/* Meta */}
+                      <div className="flex flex-wrap items-center justify-between gap-3 mb-5 pb-5 border-b border-white/5">
+                        <span className="flex items-center gap-2 text-white font-bold text-[10px] tracking-widest uppercase">
+                          <Calendar size={12} />
+                          {job.duration}
+                        </span>
+                        <span className="flex items-center gap-2 text-gray-500 text-[10px] font-bold tracking-widest uppercase">
+                          <MapPin size={12} />
+                          {job.location}
+                        </span>
+                      </div>
+
+                      <h3 className="text-2xl font-black text-white mb-2 tracking-tight">{job.title}</h3>
+                      <div className="flex items-center gap-2 mb-6 text-xs text-gray-400 font-bold uppercase tracking-widest">
+                        <Briefcase size={12} className="text-gray-500" />
+                        {job.company}
+                      </div>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {job.tags.map((t) => (
+                          <span key={t} className="px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-[9px] font-bold tracking-widest text-gray-300 uppercase">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Achievements */}
+                      <ul className="space-y-3">
+                        {job.achievements.map((a, i) => (
+                          <li key={i} className="flex items-start gap-3">
+                            <span className="mt-2 shrink-0 w-1 h-1 rounded-full bg-white/50" />
+                            <span className="text-gray-400 text-sm leading-relaxed">{a}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </MagicCard>
+                  </div>
+
+                  {/* Center dot */}
+                  <div className="hidden md:flex w-[10%] justify-center relative">
+                    <div className="w-4 h-4 rounded-full border border-white/20 bg-[#09090b] flex items-center justify-center z-10">
+                      <div className="w-1.5 h-1.5 rounded-full bg-white/80" />
+                    </div>
+                  </div>
+
+                  {/* Spacer */}
+                  <div className="hidden md:block md:w-[45%]" />
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </section>
   );
