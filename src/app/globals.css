@@ -1,67 +1,57 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #ffffff;
-  --color-secondary: #a1a1aa;
-  --color-bg: #09090b;
-  --color-surface: #121214;
+  --color-primary: #4fc3f7;
+  --color-secondary: #b388ff;
+  --color-bg: transparent; /* Rely on WebGL background */
+  --color-surface: rgba(10, 10, 15, 0.4);
   
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer utilities {
   .glass {
-    background: rgba(9, 9, 11, 0.6);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(10, 10, 15, 0.3);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
   
   .glass-panel {
-    background: linear-gradient(180deg, rgba(24, 24, 27, 0.5) 0%, rgba(9, 9, 11, 0.7) 100%);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05), 0 20px 40px rgba(0,0,0,0.5);
+    background: linear-gradient(135deg, rgba(20, 20, 30, 0.4) 0%, rgba(5, 5, 10, 0.6) 100%);
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
   }
 
-  /* Text Gradients */
   .text-gradient {
-    background: linear-gradient(to bottom right, #ffffff 30%, #71717a 100%);
+    background: linear-gradient(to right, #ffffff, #a1a1aa);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   
   .text-gradient-accent {
-    background: linear-gradient(to bottom right, #e2e8f0 0%, #38bdf8 50%, #818cf8 100%);
+    background: linear-gradient(to right, #4fc3f7, #b388ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-
-  /* Premium Grid Background */
-  .bg-grid {
-    background-size: 50px 50px;
-    background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
-  }
 }
 
 :root {
-  --bg: #050505;
+  --bg: transparent;
   --fg: #fafafa;
 }
 
 html {
   scroll-behavior: auto;
+  background: #030303; /* Fallback */
 }
 
 body {
   color: var(--fg);
-  background: var(--bg);
+  background: transparent;
   font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -69,18 +59,11 @@ body {
 }
 
 ::-webkit-scrollbar        { width: 8px; }
-::-webkit-scrollbar-track  { background: #050505; }
-::-webkit-scrollbar-thumb  { background: #27272a; border-radius: 4px; border: 2px solid #050505; }
-::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
+::-webkit-scrollbar-track  { background: #030303; }
+::-webkit-scrollbar-thumb  { background: #333; border-radius: 4px; border: 2px solid #030303; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
 
 ::selection {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-}
-
-/* ──────────────────────────────────────────────
-   Enhanced Magic Spotlight Border (Vercel Style)
-────────────────────────────────────────────── */
-.group-hover-spotlight:hover::before {
-  opacity: 1;
+  background: rgba(79, 195, 247, 0.3);
+  color: #fff;
 }

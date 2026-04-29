@@ -48,8 +48,8 @@ const experienceData = [
 
 const WorkExperience = () => {
   return (
-    <section id="experience" className="relative py-32 px-6 md:px-12 bg-[#09090b]">
-      <div className="max-w-5xl mx-auto">
+    <section id="experience" className="relative py-32 px-6 md:px-12 bg-transparent">
+      <div className="max-w-5xl mx-auto relative z-10">
 
         {/* Heading */}
         <motion.div
@@ -73,9 +73,9 @@ const WorkExperience = () => {
         {/* Center-line timeline */}
         <div className="relative">
           {/* Vertical glowing line */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[1px] bg-white/5 hidden md:block">
+          <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[1px] bg-white/10 hidden md:block">
             <motion.div 
-              className="absolute top-0 w-full bg-gradient-to-b from-transparent via-white/40 to-transparent blur-[1px]"
+              className="absolute top-0 w-full bg-gradient-to-b from-transparent via-primary to-transparent blur-[1px]"
               animate={{ top: ["-10%", "110%"] }}
               transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
               style={{ height: '20%' }}
@@ -98,14 +98,14 @@ const WorkExperience = () => {
                 >
                   {/* Card wrapper */}
                   <div className="w-full md:w-[45%]">
-                    <MagicCard className="p-8 bg-[#121214]">
+                    <MagicCard className="p-8 bg-black/40 backdrop-blur-md">
                       {/* Meta */}
-                      <div className="flex flex-wrap items-center justify-between gap-3 mb-5 pb-5 border-b border-white/5">
+                      <div className="flex flex-wrap items-center justify-between gap-3 mb-5 pb-5 border-b border-white/10">
                         <span className="flex items-center gap-2 text-white font-bold text-[10px] tracking-widest uppercase">
-                          <Calendar size={12} />
+                          <Calendar size={12} className="text-primary" />
                           {job.duration}
                         </span>
-                        <span className="flex items-center gap-2 text-gray-500 text-[10px] font-bold tracking-widest uppercase">
+                        <span className="flex items-center gap-2 text-gray-400 text-[10px] font-bold tracking-widest uppercase">
                           <MapPin size={12} />
                           {job.location}
                         </span>
@@ -113,7 +113,7 @@ const WorkExperience = () => {
 
                       <h3 className="text-2xl font-black text-white mb-2 tracking-tight">{job.title}</h3>
                       <div className="flex items-center gap-2 mb-6 text-xs text-gray-400 font-bold uppercase tracking-widest">
-                        <Briefcase size={12} className="text-gray-500" />
+                        <Briefcase size={12} className="text-secondary" />
                         {job.company}
                       </div>
 
@@ -130,7 +130,7 @@ const WorkExperience = () => {
                       <ul className="space-y-3">
                         {job.achievements.map((a, i) => (
                           <li key={i} className="flex items-start gap-3">
-                            <span className="mt-2 shrink-0 w-1 h-1 rounded-full bg-white/50" />
+                            <span className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-primary/40" />
                             <span className="text-gray-400 text-sm leading-relaxed">{a}</span>
                           </li>
                         ))}
@@ -140,8 +140,8 @@ const WorkExperience = () => {
 
                   {/* Center dot */}
                   <div className="hidden md:flex w-[10%] justify-center relative">
-                    <div className="w-4 h-4 rounded-full border border-white/20 bg-[#09090b] flex items-center justify-center z-10">
-                      <div className="w-1.5 h-1.5 rounded-full bg-white/80" />
+                    <div className="w-4 h-4 rounded-full border border-white/20 bg-black flex items-center justify-center z-10 shadow-[0_0_10px_rgba(79,195,247,0.5)]">
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
                     </div>
                   </div>
 

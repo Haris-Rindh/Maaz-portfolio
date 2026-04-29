@@ -59,7 +59,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-32 px-6 md:px-12 bg-[#09090b] overflow-hidden">
+    <section id="contact" className="relative py-32 px-6 md:px-12 bg-transparent overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto">
 
         {/* Heading */}
@@ -92,7 +92,7 @@ const Contact = () => {
             className="w-full md:w-2/5 flex flex-col gap-6"
           >
             {/* Email card */}
-            <MagicCard className="p-8 bg-[#121214]">
+            <MagicCard className="p-8 bg-black/40 backdrop-blur-md">
               <p className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-bold mb-4">
                 Primary Communication Channel
               </p>
@@ -106,7 +106,7 @@ const Contact = () => {
             </MagicCard>
 
             {/* Social connect */}
-            <MagicCard className="p-8 flex-1 bg-[#121214]">
+            <MagicCard className="p-8 flex-1 bg-black/40 backdrop-blur-md">
               <p className="text-[10px] text-gray-500 uppercase tracking-[0.2em] font-bold mb-6">
                 Professional Networks
               </p>
@@ -139,7 +139,7 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="w-full md:w-3/5"
           >
-            <MagicCard className="p-8 md:p-12 h-full flex flex-col bg-[#121214]">
+            <MagicCard className="p-8 md:p-12 h-full flex flex-col bg-black/40 backdrop-blur-md">
               <h3 className="text-2xl font-black text-white mb-2 tracking-tight">Secure Transmission</h3>
               <p className="text-xs text-gray-400 tracking-wide mb-8">All messages are encrypted and sent directly to my primary inbox.</p>
               
@@ -154,13 +154,13 @@ const Contact = () => {
                   <textarea
                     required
                     placeholder="Describe the technical requirements or opportunity..."
-                    className="w-full flex-1 min-h-[120px] p-4 rounded-xl bg-black/20 border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:ring-1 focus:ring-white/30 focus:border-white/30 transition-all resize-none"
+                    className="w-full flex-1 min-h-[120px] p-4 rounded-xl bg-black/20 border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all resize-none shadow-inner"
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={isSubmitting || isSubmitted}
-                  className="w-full py-4 rounded-xl font-bold text-[10px] tracking-[0.2em] uppercase text-black bg-white hover:bg-gray-200 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full py-4 rounded-xl font-bold text-[10px] tracking-[0.2em] uppercase text-black bg-white hover:bg-gray-200 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(255,255,255,0.2)]"
                 >
                   {isSubmitting
                     ? <><Loader2 className="animate-spin" size={14} /> Processing...</>
@@ -184,7 +184,7 @@ const InputField = ({ label, type, placeholder }: { label: string; type: string;
       type={type}
       required
       placeholder={placeholder}
-      className="w-full p-4 rounded-xl bg-black/20 border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:ring-1 focus:ring-white/30 focus:border-white/30 transition-all"
+      className="w-full p-4 rounded-xl bg-black/20 border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all shadow-inner"
     />
   </div>
 );

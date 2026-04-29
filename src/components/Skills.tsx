@@ -23,7 +23,7 @@ interface Category {
 const categories: Category[] = [
   {
     id: "llm",
-    icon: <BrainCircuit size={18} className="text-white" />,
+    icon: <BrainCircuit size={18} className="text-primary" />,
     title: "LLM & GenAI Engineering",
     subtitle: "Building and shipping production-grade large language model systems at scale.",
     skills: [
@@ -37,7 +37,7 @@ const categories: Category[] = [
   },
   {
     id: "ml",
-    icon: <Cpu size={18} className="text-white" />,
+    icon: <Cpu size={18} className="text-secondary" />,
     title: "ML Frameworks & Research",
     subtitle: "From transformer architectures to classical ML — model design and training at research quality.",
     skills: [
@@ -51,7 +51,7 @@ const categories: Category[] = [
   },
   {
     id: "mlops",
-    icon: <Globe size={18} className="text-white" />,
+    icon: <Globe size={18} className="text-primary" />,
     title: "MLOps & Infrastructure",
     subtitle: "Production pipelines, CI/CD for models, and cloud-native ML infrastructure.",
     skills: [
@@ -65,7 +65,7 @@ const categories: Category[] = [
   },
   {
     id: "data",
-    icon: <Code2 size={18} className="text-white" />,
+    icon: <Code2 size={18} className="text-secondary" />,
     title: "Languages & Data Stack",
     subtitle: "Core languages and data engineering tools for end-to-end pipeline ownership.",
     skills: [
@@ -90,8 +90,8 @@ const Skills = () => {
   const active = categories.find((c) => c.id === activeId)!;
 
   return (
-    <section id="skills" className="relative py-32 px-6 md:px-12 bg-[#09090b]">
-      <div className="max-w-7xl mx-auto">
+    <section id="skills" className="relative py-32 px-6 md:px-12 bg-transparent">
+      <div className="max-w-7xl mx-auto relative z-10">
 
         {/* ── Layout: left info + right panel ── */}
         <div className="flex flex-col md:flex-row gap-16 items-start">
@@ -125,8 +125,8 @@ const Skills = () => {
                   onClick={() => setActiveId(cat.id)}
                   className={`group relative flex items-center gap-4 px-5 py-4 rounded-xl text-xs font-bold tracking-widest uppercase transition-all duration-300 text-left overflow-hidden border
                     ${activeId === cat.id
-                      ? "bg-white/5 text-white border-white/10"
-                      : "bg-transparent text-gray-500 border-transparent hover:bg-white/[0.02] hover:text-gray-300"
+                      ? "bg-white/10 text-white border-white/20 shadow-sm backdrop-blur-md"
+                      : "bg-transparent text-gray-500 border-transparent hover:bg-white/[0.02] hover:text-white"
                     }`}
                 >
                   <div className="relative z-10 opacity-70 group-hover:opacity-100 transition-opacity">{cat.icon}</div>
@@ -149,9 +149,9 @@ const Skills = () => {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
               >
-                <MagicCard className="p-8 md:p-12 min-h-[420px] bg-[#121214]">
+                <MagicCard className="p-8 md:p-12 min-h-[420px] bg-black/40 backdrop-blur-md">
                   {/* Panel header */}
-                  <div className="flex items-start gap-5 mb-10 pb-8 border-b border-white/5">
+                  <div className="flex items-start gap-5 mb-10 pb-8 border-b border-white/10">
                     <div className="p-4 bg-white/5 rounded-xl border border-white/10">{active.icon}</div>
                     <div>
                       <h3 className="text-2xl font-black text-white mb-2 tracking-tight">{active.title}</h3>
@@ -167,9 +167,9 @@ const Skills = () => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.05 + 0.1, duration: 0.4, ease: "easeOut" }}
-                        className="group bg-black/20 border border-white/5 rounded-xl px-5 py-4 flex items-center justify-between hover:bg-white/5 transition-colors duration-300"
+                        className="group bg-black/40 border border-white/10 rounded-xl px-5 py-4 flex items-center justify-between hover:bg-white/10 hover:border-white/20 transition-colors duration-300 backdrop-blur-sm"
                       >
-                        <span className="font-medium text-gray-300 text-sm group-hover:text-white transition-colors">{skill.name}</span>
+                        <span className="font-medium text-gray-300 text-sm transition-colors group-hover:text-white">{skill.name}</span>
                         <span
                           className={`text-[9px] font-bold tracking-[0.15em] px-2.5 py-1 rounded-full ${levelClass[skill.level]}`}
                         >

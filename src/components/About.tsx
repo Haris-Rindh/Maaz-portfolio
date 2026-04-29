@@ -22,10 +22,7 @@ const About = () => {
   const yCards = useTransform(scrollYProgress, [0, 1], ["10%", "-10%"]);
 
   return (
-    <section ref={containerRef} id="about" className="relative py-32 px-6 md:px-12 bg-[#09090b] overflow-hidden">
-      {/* Subtle Background Elements */}
-      <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
-
+    <section ref={containerRef} id="about" className="relative py-32 px-6 md:px-12 bg-transparent overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row gap-20 items-center">
 
         {/* ── Left copy (Parallax) ── */}
@@ -64,7 +61,7 @@ const About = () => {
                 whileInView={{ y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-                className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 leading-none tracking-tighter"
+                className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary leading-none tracking-tighter"
               >
                 INTELLIGENCE.
               </motion.h2>
@@ -94,8 +91,8 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
-              <MagicCard className="h-full flex flex-col items-center justify-center p-8 bg-white/[0.02]">
-                <div className="text-5xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600 mb-2">{stat.value}</div>
+              <MagicCard className="h-full flex flex-col items-center justify-center p-8 bg-black/40 backdrop-blur-md">
+                <div className="text-5xl font-black text-white mb-2">{stat.value}</div>
                 <div className="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] text-center">
                   {stat.label}
                 </div>

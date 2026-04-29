@@ -36,12 +36,12 @@ const Navbar = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`glass-panel rounded-2xl px-6 py-3.5 flex items-center justify-between transition-all duration-300 ${
-          scrolled ? "shadow-[0_8px_32px_rgba(0,0,0,0.5)] border-white/10" : "border-transparent bg-transparent"
+        className={`rounded-2xl px-6 py-3.5 flex items-center justify-between transition-all duration-300 ${
+          scrolled ? "shadow-[0_8px_32px_rgba(0,0,0,0.8)] border border-white/10 bg-black/80 backdrop-blur-xl" : "border border-transparent bg-transparent shadow-none"
         }`}
       >
         {/* Brand */}
-        <div className="flex items-center gap-2 text-white font-black text-sm tracking-widest select-none drop-shadow-md">
+        <div className="flex items-center gap-2 text-white font-black text-sm tracking-widest select-none cursor-pointer" onClick={() => handleNav("Home", "#home")}>
           <Terminal size={18} className="text-primary" />
           <span>MAAZ<span className="text-gray-500">.AI</span></span>
         </div>
@@ -55,7 +55,7 @@ const Navbar = () => {
                 className={`relative px-4 py-2 rounded-xl text-xs font-bold tracking-[0.15em] uppercase transition-all duration-300
                   ${active === link.label
                     ? "text-white"
-                    : "text-gray-500 hover:text-white"
+                    : "text-gray-400 hover:text-white hover:bg-white/5"
                   }`}
               >
                 {active === link.label && (
@@ -73,12 +73,12 @@ const Navbar = () => {
 
         {/* Right controls */}
         <div className="flex items-center gap-4">
-          <a
-            href="#contact"
-            className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold tracking-widest text-[10px] uppercase text-white bg-primary/20 border border-primary/30 hover:bg-primary hover:border-primary transition-all duration-300 shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+          <button
+            onClick={() => handleNav("Contact", "#contact")}
+            className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-xl font-bold tracking-widest text-[10px] uppercase text-black bg-white border border-white hover:bg-gray-200 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
           >
             Initialize Contact
-          </a>
+          </button>
 
           {/* Mobile hamburger */}
           <button
@@ -99,7 +99,7 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.96 }}
             transition={{ duration: 0.2 }}
-            className="mt-2 glass-panel rounded-2xl p-4 flex flex-col gap-2 shadow-[0_8px_32px_rgba(0,0,0,0.5)] border border-white/10"
+            className="mt-2 bg-black/90 backdrop-blur-xl rounded-2xl p-4 flex flex-col gap-2 shadow-[0_8px_32px_rgba(0,0,0,0.8)] border border-white/10"
           >
             {navLinks.map((link) => (
               <button
