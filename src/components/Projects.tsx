@@ -43,28 +43,40 @@ const MagneticButton = ({ children, className = "", onClick }: { children: React
 
 const projectsData = [
   {
-    title: "Enterprise RAG Assistant",
-    description: "Production RAG platform for legal document analysis. Integrates LangChain, Pinecone, and GPT-4 for citation-grounded summarisation and multi-turn QA over million-token corpora.",
-    tags: ["LLMs", "LangChain", "Pinecone", "FastAPI"],
-    metric: "Reduced review time by 60%",
-    github: "#",
+    title: "Intelligent RAG Support Agent",
+    description: "An automated, context-aware customer support pipeline built with LangChain and OpenAI. Utilizes Retrieval-Augmented Generation to instantly resolve user queries by semantic searching across internal knowledge bases.",
+    tags: ["LLMs", "LangChain", "OpenAI", "VectorDB"],
+    metric: "95% Query Resolution Rate",
+    github: "https://github.com/Maaz1034/Ai-customer-support-bot.git",
     live: "#",
+    image: "/projects/project-1.jpg",
   },
   {
-    title: "Real-time NLP Inference Engine",
-    description: "High-throughput serving layer built on vLLM + Kubernetes with dynamic batching, autoscaling, and a Prometheus + Grafana observability stack. Zero-downtime rolling model updates.",
-    tags: ["Kubernetes", "vLLM", "Docker", "Prometheus"],
-    metric: "10k+ RPS · sub-50ms p99 latency",
-    github: "#",
+    title: "Disinformation Detection Engine",
+    description: "A high-accuracy NLP pipeline designed to classify and predict fake news articles. Built leveraging modern transformer architectures to extract semantic features and detect linguistic anomalies in real-time.",
+    tags: ["NLP", "Transformers", "scikit-learn", "Python"],
+    metric: "98.2% Classification F1-Score",
+    github: "https://github.com/Maaz1034/fake-news-prediction.git",
     live: "#",
+    image: "/projects/project-2.jpg",
   },
   {
-    title: "Financial Sentiment Dashboard",
-    description: "Real-time analytics platform aggregating 1M+ daily news items through a fine-tuned FinBERT model, with live candlestick overlays in D3.js and automated daily email briefs.",
-    tags: ["PyTorch", "React", "D3.js", "Kafka"],
-    metric: "1M+ signals processed daily",
-    github: "#",
+    title: "Medical Diagnostic ML Model",
+    description: "A robust machine learning classification system for the early detection of malignant breast cancer tumors. Processes complex clinical datasets through optimized XGBoost and Random Forest ensembles.",
+    tags: ["Machine Learning", "XGBoost", "Pandas", "Healthcare"],
+    metric: "Reduced False Negatives by 40%",
+    github: "https://github.com/maazh1034-png/Breast-cancer-project-Ml-",
     live: "#",
+    image: "/projects/project-3.jpg",
+  },
+  {
+    title: "AI Orchestration Framework",
+    description: "A comprehensive artificial intelligence platform demonstrating advanced model orchestration, data pipeline integration, and scalable deployment strategies for modern GenAI applications.",
+    tags: ["Deep Learning", "PyTorch", "MLOps", "API"],
+    metric: "Scalable Microservice Architecture",
+    github: "https://github.com/maazh1034-png/Ai-project.git",
+    live: "#",
+    image: "/projects/project-4.jpg",
   },
 ];
 
@@ -117,12 +129,12 @@ const Projects = () => {
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <span className="h-px w-8 bg-gradient-to-r from-white/50 to-transparent" />
-              <span className="text-[10px] font-bold tracking-widest text-white/50 uppercase">Showcase</span>
+              <span className="h-px w-8 bg-gradient-to-r from-primary to-transparent" />
+              <span className="text-[10px] font-bold tracking-widest text-primary uppercase">Showcase</span>
             </div>
             <h2 className="text-5xl md:text-7xl font-black text-white leading-none tracking-tighter">
               FEATURED<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-600">PROJECT</span>
+              <span className="text-gradient-accent">PROJECT</span>
             </h2>
           </motion.div>
 
@@ -137,7 +149,7 @@ const Projects = () => {
               <MagneticButton onClick={prev} className="p-4 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-colors backdrop-blur-md">
                 <ChevronLeft size={20} />
               </MagneticButton>
-              <MagneticButton onClick={next} className="p-4 rounded-full bg-white text-black hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+              <MagneticButton onClick={next} className="p-4 rounded-full bg-white text-black hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,0,127,0.4)]">
                 <ChevronRight size={20} />
               </MagneticButton>
             </div>
@@ -145,7 +157,7 @@ const Projects = () => {
         </div>
 
         {/* Featured card */}
-        <div className="relative w-full h-auto md:h-[480px]" style={{ perspective: "2000px" }}>
+        <div className="relative w-full h-auto md:h-[500px]" style={{ perspective: "2000px" }}>
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={current}
@@ -157,12 +169,12 @@ const Projects = () => {
               transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               className="w-full absolute inset-0 transform-style-3d"
             >
-              <MagicCard className="w-full h-full flex flex-col md:flex-row p-0 bg-black/40 backdrop-blur-md">
+              <MagicCard className="w-full h-full flex flex-col md:flex-row p-0">
                 {/* Left — main info */}
-                <div className="md:w-3/5 p-10 md:p-14 flex flex-col justify-center">
+                <div className="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
                   <motion.p 
                     initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}
-                    className="text-primary font-bold text-[10px] tracking-[0.2em] uppercase mb-4 drop-shadow-md"
+                    className="text-secondary font-bold text-[10px] tracking-[0.2em] uppercase mb-4 drop-shadow-md"
                   >
                     {projectsData[current].metric}
                   </motion.p>
@@ -176,14 +188,14 @@ const Projects = () => {
                   
                   <motion.p 
                     initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }}
-                    className="text-gray-400 leading-relaxed mb-10 text-sm md:text-base max-w-lg"
+                    className="text-gray-400 leading-relaxed mb-8 text-sm md:text-base max-w-lg"
                   >
                     {projectsData[current].description}
                   </motion.p>
 
                   <motion.div 
                     initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}
-                    className="flex flex-wrap gap-2 mb-12"
+                    className="flex flex-wrap gap-2 mb-10"
                   >
                     {projectsData[current].tags.map((tag) => (
                       <span key={tag} className="px-3 py-1.5 rounded-full bg-white/[0.05] border border-white/10 text-[9px] font-bold tracking-widest text-gray-300 uppercase">
@@ -196,25 +208,26 @@ const Projects = () => {
                     initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
                     className="flex flex-wrap gap-4 mt-auto"
                   >
-                    <a href={projectsData[current].github} className="group flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 bg-transparent font-bold text-[10px] tracking-widest uppercase text-white hover:bg-white/10 transition-all">
+                    <a href={projectsData[current].github} target="_blank" rel="noreferrer" className="group flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 bg-transparent font-bold text-[10px] tracking-widest uppercase text-white hover:bg-white/10 transition-all">
                       <Github size={14} className="group-hover:scale-110 transition-transform" /> Source
                     </a>
-                    <a href={projectsData[current].live} className="group flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-bold text-[10px] tracking-widest uppercase shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-105 transition-all">
+                    <a href={projectsData[current].live} target="_blank" rel="noreferrer" className="group flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black font-bold text-[10px] tracking-widest uppercase shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-105 transition-all">
                       <ExternalLink size={14} className="group-hover:scale-110 transition-transform" /> Deploy
                     </a>
                   </motion.div>
                 </div>
 
-                {/* Right — decorative panel */}
-                <div className="hidden md:flex md:w-2/5 relative items-center justify-center p-12 bg-black/60 border-l border-white/10 overflow-hidden">
-                  <motion.div 
-                    initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
-                    className="text-center relative z-10"
-                  >
-                    <div className="text-[180px] font-black text-transparent bg-clip-text bg-gradient-to-b from-white/20 to-transparent select-none leading-none">
-                      {String(current + 1).padStart(2, "0")}
-                    </div>
-                  </motion.div>
+                {/* Right — Project Image */}
+                <div className="w-full md:w-1/2 relative h-64 md:h-full border-t md:border-t-0 md:border-l border-white/10 overflow-hidden group">
+                  {/* Subtle overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-transparent z-10 pointer-events-none" />
+                  
+                  {/* The Image with hover zoom effect */}
+                  <img 
+                    src={projectsData[current].image} 
+                    alt={projectsData[current].title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+                  />
                 </div>
               </MagicCard>
             </motion.div>
@@ -234,7 +247,7 @@ const Projects = () => {
               }}
               className={`p-2 transition-all duration-500`}
             >
-              <div className={`h-1.5 rounded-full transition-all duration-500 ${i === current ? "bg-white w-8 shadow-[0_0_10px_rgba(255,255,255,0.8)]" : "bg-white/30 w-1.5 hover:bg-white/60"}`} />
+              <div className={`h-1.5 rounded-full transition-all duration-500 ${i === current ? "bg-primary w-8 shadow-[0_0_10px_rgba(255,0,127,0.8)]" : "bg-white/30 w-1.5 hover:bg-white/60"}`} />
             </MagneticButton>
           ))}
         </div>

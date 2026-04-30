@@ -93,11 +93,11 @@ const TiltImage = () => {
       <div className="absolute inset-0 rounded-3xl bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/20 overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.8)]">
         {/* Placeholder High-Quality Image */}
         <img 
-          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop" 
+          src="/projects/profile.jpeg" 
           alt="Profile" 
-          className="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700 grayscale hover:grayscale-0"
+          className="w-full h-full object-cover transition-all duration-700"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
       </div>
 
       {/* Floating UI Elements linked to 3D depth */}

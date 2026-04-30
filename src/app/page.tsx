@@ -11,11 +11,13 @@ import Contact from "@/components/Contact";
 import { CustomCursor } from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
 import Scene from "@/components/Scene";
+import Preloader from "@/components/Preloader";
 import { Github, Linkedin, Mail } from "lucide-react";
 
 export default function Home() {
   return (
     <SmoothScroll>
+      <Preloader />
       <div className="cursor-none relative">
         <CustomCursor />
         {/* Global 3D WebGL Scene */}

@@ -28,10 +28,13 @@ const NeuralSphere = () => {
       positions[i * 3 + 1] = r * Math.sin(theta) * Math.sin(phi);
       positions[i * 3 + 2] = r * Math.cos(phi);
 
-      randoms[i] = Math.random();
-
-      // Cyber/Luxury colors: Indigo, cyan, and deep blue
-      color.setHSL(0.55 + Math.random() * 0.15, 0.9, 0.6);
+      // Luxury AI colors: Cyberpunk Pink & Deep Violet
+      const isPink = Math.random() > 0.5;
+      if (isPink) {
+        color.setHSL(0.92 + Math.random() * 0.05, 1.0, 0.5); // Pink range
+      } else {
+        color.setHSL(0.72 + Math.random() * 0.08, 1.0, 0.5); // Violet range
+      }
       colors[i * 3] = color.r;
       colors[i * 3 + 1] = color.g;
       colors[i * 3 + 2] = color.b;
@@ -100,7 +103,8 @@ export const Scene = () => {
       <Canvas camera={{ position: [0, 0, 8], fov: 45 }} dpr={[1, 2]}>
         <color attach="background" args={["#020202"]} />
         <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 10]} intensity={2} color="#4fc3f7" />
+        <directionalLight position={[10, 10, 10]} intensity={2.5} color="#FF007F" />
+        <directionalLight position={[-10, -10, -10]} intensity={1.5} color="#7A00FF" />
         
         <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
           <NeuralSphere />
